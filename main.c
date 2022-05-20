@@ -3,6 +3,6 @@
 #include <string.h>
 
 int main(){
-    printf("Teste!!!");
+    printf("Hello world!!!");
     return 0;
 }
