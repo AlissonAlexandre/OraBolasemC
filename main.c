@@ -1,13 +1,11 @@
- 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 //#include "utils.h"
 #include "equacoes.h"
-#define RAIO_ROBO 0.021
-#define RAIO_BOLA 0.09
-#define RAIO RAIO_ROBO+RAIO_BOLA
+
 
 /*
 typedef struct {
@@ -20,15 +18,6 @@ typedef struct {
   double aY; // Aceleração da bola no eixo Y no instante de tempo
 } bola;
 */
-typedef struct {
-  double tempo;
-  double posX;
-  double posY;
-  double velX;
-  double velY;
-  double aX; // Aceleração da robo no eixo X no instante de tempo
-  double aY; // Aceleração da robo no eixo Y no instante de tempo
-} robo;
 
 
 int main() {
@@ -49,7 +38,7 @@ int main() {
   scanf("%lf", &ptr_robo[0].posY);
   ptr_robo[0].tempo = 0.00;
   if (ptr_robo[0].posX < 0.0 || ptr_robo[0].posX > 9.0 || ptr_robo[0].posY < 0.0 || ptr_robo[0].posY > 6.0){
-    printf("Posição do robô fora dos limites do campo!!");
+    printf("Posição do robô fora dos limites do campo!!\n");
     exit('0');
     }
   menor_distancia = acha_menorDistancia(ptr_robo[0].posX,ptr_robo[0].posY, &ptr_bola[1000]);

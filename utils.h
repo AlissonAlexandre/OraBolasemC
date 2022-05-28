@@ -13,6 +13,20 @@ typedef struct {
   double aX; // Aceleração da bola no eixo X no instante de tempo
   double aY; // Aceleração da bola no eixo Y no instante de tempo
 } bola;
+
+typedef struct {
+  double tempo;
+  double posX;
+  double posY;
+  double velX;
+  double velY;
+  double vel;
+  double aX;
+  double aY;
+  double aceleracao; // Aceleração da robo no eixo X no instante de tempo
+  
+} robo;
+
 void le_arquivo(bola *ptr_bola) {
   FILE *fp; // Ponteiro de arquivo
   fp = fopen("data/trajetoria_bola.txt", "r");
@@ -47,3 +61,4 @@ void le_arquivo(bola *ptr_bola) {
   }
   fclose(fp);
   }
+
