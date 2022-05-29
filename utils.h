@@ -98,7 +98,7 @@ void menu(bola *ptr_bola, robo *ptr_robo, double menor_distancia, double teta){
         printf("Posição de interceptação Y: %lf\n", ptr_robo[1000].posY);
         break;
       case 3:
-        printf("Angulo entre a posição inicial e a final: %lf\n", converter_radToDeg(teta));
+        printf("Angulo entre a posição inicial e a final: %lf°\n", converter_radToDeg(teta));
         break;
       case 4:
         printf("Raio de interceptação da bola: %lf\n", RAIO_BOLA);
