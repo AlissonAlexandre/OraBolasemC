@@ -91,19 +91,19 @@ void menu(bola *ptr_bola, robo *ptr_robo, double menor_distancia, double teta){
       case 0:
         return;
       case 1:
-        printf("Menor distancia entre a posição inicial do robo e a final da bola: %lf\n", menor_distancia);
+        printf("Menor distancia entre a posição inicial do robo e a final da bola: %lfm\n", menor_distancia);
         break;
       case 2:
-        printf("Posição de interceptação X: %lf\n", ptr_robo[1000].posX);
-        printf("Posição de interceptação Y: %lf\n", ptr_robo[1000].posY);
+        printf("Posição de interceptação X: %lfm\n", ptr_robo[1000].posX);
+        printf("Posição de interceptação Y: %lfm\n", ptr_robo[1000].posY);
         break;
       case 3:
-        printf("Angulo entre a posição inicial e a final: %lf\n", converter_radToDeg(teta));
+        printf("Angulo entre a posição inicial e a final: %lf°\n", converter_radToDeg(teta));
         break;
       case 4:
-        printf("Raio de interceptação da bola: %lf\n", RAIO_BOLA);
-        printf("Raio de interceptação do robo: %lf\n", RAIO_ROBO);
-        printf("Raio de interceptação total: %lf\n", RAIO);
+        printf("Raio de interceptação da bola: %lfm\n", RAIO_BOLA);
+        printf("Raio de interceptação do robo: %lfm\n", RAIO_ROBO);
+        printf("Raio de interceptação total: %lfm\n", RAIO);
         break;
       case 5:
         printf("=== INTEGRANTES DO GRUPO ===\n");
