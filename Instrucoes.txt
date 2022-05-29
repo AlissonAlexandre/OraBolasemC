@@ -1,0 +1,48 @@
+=========================================================
+				PROJETO ORA BOLAS
+=========================================================
+============== INTEGRANTES DO GRUPO =====================
+        Alisson Alexandre B Barros - R.A. 22.221.009-8
+        Carlos Massato H. Chinen - R.A. 22.221.010-6
+        Matheus T. da Silva Arcanjo - R.A. 22.221.020-5
+        Pedro Henrique Leite - R.A. 22.221.003-1
+=========================================================
+============== INSTRUÇÕES DE USO ========================
+
+ Ao executar o arquivo main.c, o programa irá pedir para o usuário inserir o X e Y do robô, após isso caso o Robô intercepte a bola, um menu aparece e pede para o usuário entrar com a opção desejada.
+ Pressione 0 para Sair
+ Pressione 1 para mostrar a menor distância entre a posição inicial do robô e a posição final da bola
+ Pressione 2 para mostrar o ponto de interceptação
+ Pressione 3 para mostrar o ângulo entre a posição inicial e a final
+ Pressione 4 para mostrar o raio de interceptação
+ Pressione 5 para mostrar os integrantes do grupo
+ Pressione 6 para gerar os gráficos
+ 
+ OBS: Caso pressione 6, favor acessar os gráficos manualmente já que infelizmente não consegui fazer o terminal do GNUPlot abrir no repl.it (apesar de procurar e tentar muito)
+ 
+ ============== Funcionalidades Obrigatórias ========================
+ • Criação de pelo menos 2 arquivos header .h: 
+ Arquivo equacoes.h (responsável pela implementação das equacoes e formulas) e utils.h (responsável pela implementação pelos utilitários)
+ 
+ • Implementar rotina de leitura de arquivos:
+ Implementada no arquivo utils.h na função le_arquivo, na linha 34
+ 
+ • Criação de pelo menos duas estruturas de dados do tipo “struct”:
+  Alocadas dinamicamente no main, nas linhas 19 e 21, onde as definições do tipos da struct bola e robo são feitas no arquivo utils.h, na linha 13~32.
+  
+ • Utilizar pelo menos 3 variáveis do tipo “define”:
+  Utilizamos mais de defines no código, cinco exemplos estão no arquivo utils.h, na linha 7~11.
+  
+ • Utilizar em pelo menos duas situações a alocação dinâmica de vetor ou matrizes:
+  As duas situações que utilizamos alocação dinamica foram nas duas structs, onde alocamos um vetor de structs de n (1000) posições, as alocações estão nas linhas 19 e 21. 
+  Já a liberação de memória dos vetores de structs estão nas linhas 57 e 58.
+  
+  ============== Funcionalidades Extras ========================
+ • Instanciar o projeto no github, considerando boas práticas de desenvolvimento:
+  O projeto contém duas branches, uma de desenvolvimento (dev), onde as mudanças são enviadas sempre que uma parte do código é feito.
+  Já a branch main é destinada a publicação das versões estáveis do projeto.
+  
+ • Integração com GNUPLOT e Apresentação visual dos resultados por meio de gráficos:
+  Os gráficos são gerados quando o usuário escolhe a opção 6 do menu, utilizando o arquivo gerado na função montaGraficos (linha 128, utils.h) e utilizando o comando System para chamar o GNUPLOT (utils.h, linha 114~118)
+  
+  

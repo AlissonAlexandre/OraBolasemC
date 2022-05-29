@@ -3,21 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-//#include "utils.h"
 #include "equacoes.h"
-
-
-/*
-typedef struct {
-  double tempo;
-  double posX;
-  double posY;
-  double velX;
-  double velY;
-  double aX; // Aceleração da bola no eixo X no instante de tempo
-  double aY; // Aceleração da bola no eixo Y no instante de tempo
-} bola;
-*/
 
 
 int main() {
@@ -41,7 +27,8 @@ int main() {
   scanf("%lf", &ptr_robo[0].posY);
   
   ptr_robo[0].tempo = 0.00;
-  if (ptr_robo[0].posX < 0.0 || ptr_robo[0].posX > 9.0 || ptr_robo[0].posY < 0.0 || ptr_robo[0].posY > 6.0){
+  
+  if (ptr_robo[0].posX < 0.0 || ptr_robo[0].posX > 9.0 || ptr_robo[0].posY < 0.0 || ptr_robo[0].posY > 6.0){ // checa se o robô está nos limites do campo
     printf("Posição do robô fora dos limites do campo!!\n");
     exit('0');
     }
@@ -49,13 +36,16 @@ int main() {
 
 
   coeficiente_angular = (5.3-ptr_robo[0].posX)/(9-ptr_robo[0].posY);
-  teta_rad = fabs(atan(coeficiente_angular));
+  teta_rad = fabs(atan(coeficiente_angular)); // angulo entre a posição inicial e posição de interceptação
   montaStruct_robo(ptr_robo, teta_rad, menor_distancia, ptr_bola);
+  montaVelocidades_bola(ptr_bola);
   
   if(ptr_bola[1000].posX-RAIO == ptr_robo[1000].posX && ptr_bola[1000].posY-RAIO == ptr_robo[1000].posY){
     printf("\nInterceptou!! :)\n");
+    montaGraficos(ptr_robo, ptr_bola);
     menu(ptr_bola, ptr_robo, menor_distancia, teta_rad);
-  }else{
+  }
+  else{
     printf("ptr_bola[1000].posX - %lf\n", ptr_bola[1000].posX );
     printf("ptr_bola[1000].posY - %lf\n", ptr_bola[1000].posY );
     printf("ptr_robo[1000].posX - %lf\n", ptr_robo[1000].posX );
@@ -63,8 +53,9 @@ int main() {
     printf("Não interceptou :(\n");
   }
 
-
   
+  free(ptr_bola);
+  free(ptr_robo);
   
   return 0;
 }

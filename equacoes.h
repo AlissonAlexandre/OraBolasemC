@@ -151,6 +151,13 @@ void montaStruct_robo(robo *ptr_robo, double teta_rad, double distancia_total, b
     ptr_robo[i].posX = ptr_robo[i-1].posX;
     ptr_robo[i].posY = ptr_robo[i-1].posY;
     ptr_robo[i].tempo = tempo;
+    if(ptr_robo[i].velY == 0 & ptr_robo[i].velX == 0){
+      ptr_robo[i].vel = 0;
+    } else if(ptr_robo[i].velX == 0){
+      ptr_robo[i].vel = ptr_robo[i].velY;
+    } else if(ptr_robo[i].velY == 0){
+      ptr_robo[i].vel = ptr_robo[i].velX;
+    }
     tempo += 0.02;
     i++;
   }
@@ -185,6 +192,13 @@ void montaStruct_robo(robo *ptr_robo, double teta_rad, double distancia_total, b
     }
     if(ptr_robo[i].aY == 0 & ptr_robo[i].aX == 0){
       ptr_robo[i].aceleracao = 0;
+    }
+    if(ptr_robo[i].velY == 0 & ptr_robo[i].velX == 0){
+      ptr_robo[i].vel = 0;
+    } else if(ptr_robo[i].velX == 0){
+      ptr_robo[i].vel = ptr_robo[i].velY;
+    } else if(ptr_robo[i].velY == 0){
+      ptr_robo[i].vel = ptr_robo[i].velX;
     }
     i++;
     tempo += 0.02;
@@ -222,6 +236,13 @@ void montaStruct_robo(robo *ptr_robo, double teta_rad, double distancia_total, b
     if(ptr_robo[i].posY > posicao_interceptacao_y){
       ptr_robo[i].posY = posicao_interceptacao_y;
     }
+    if(ptr_robo[i].velY == 0 & ptr_robo[i].velX == 0){
+      ptr_robo[i].vel = 0;
+    } else if(ptr_robo[i].velX == 0){
+      ptr_robo[i].vel = ptr_robo[i].velY;
+    } else if(ptr_robo[i].velY == 0){
+      ptr_robo[i].vel = ptr_robo[i].velX;
+    }
     i++;
     tempo += 0.02;
   }
@@ -235,7 +256,30 @@ void montaStruct_robo(robo *ptr_robo, double teta_rad, double distancia_total, b
     ptr_robo[i].aX = 0;
     ptr_robo[i].aY = 0;
     ptr_robo[i].tempo = tempo;
+    if(ptr_robo[i].velY == 0 & ptr_robo[i].velX == 0){
+      ptr_robo[i].vel = 0;
+    } else if(ptr_robo[i].velX == 0){
+      ptr_robo[i].vel = ptr_robo[i].velY;
+    } else if(ptr_robo[i].velY == 0){
+      ptr_robo[i].vel = ptr_robo[i].velX;
+    }
     tempo += 0.02;
     i++;
   }
+}
+
+void montaVelocidades_bola(bola *ptr_robo){
+  /*=========================================
+    Popula as informações da velocidade da struct da bola
+    =========================================
+   */  
+  int i = 0;
+  while (i<1000){
+    ptr_robo[i].velX =  ptr_robo[i].posX - ptr_robo[i-1].posX;
+    ptr_robo[i].velY =  ptr_robo[i].posY - ptr_robo[i-1].posY;
+    i++;
+  }
+  //quando i chegar na última posição (1000)
+  ptr_robo[i].velX = 0;
+  ptr_robo[i].velY = 0;
 }
